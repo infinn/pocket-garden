@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://c1im08oohd40"]
+
+[ext_resource type="PackedScene" uid="uid://bubl6s3cvgp24" path="res://scenes/characters/zombies/common.tscn" id="1_k8qel"]
+[ext_resource type="Texture2D" uid="uid://cfoimikar5qfx" path="res://assests/sprites/characters/zombie/door/door.png" id="2_5rx8x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vfo2"]
+atlas = ExtResource("2_5rx8x")
+region = Rect2(21, 0, 21, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wr7u"]
+atlas = ExtResource("2_5rx8x")
+region = Rect2(42, 0, 21, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d5aj"]
+atlas = ExtResource("2_5rx8x")
+region = Rect2(0, 0, 21, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7s8ej"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vfo2")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wr7u")
+}],
+"loop": true,
+"name": &"full",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d5aj")
+}],
+"loop": true,
+"name": &"full-damage",
+"speed": 5.0
+}]
+
+[node name="Zombie" unique_id=1123814587 instance=ExtResource("1_k8qel")]
+zombie_name = "Screen Door Zombie"
+helmet = true
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=351492024]
+frame_progress = 0.9286933
+
+[node name="AnimatedSpriteHelmet" parent="." index="8" unique_id=1445632556]
+position = Vector2(-3, 6)
+sprite_frames = SubResource("SpriteFrames_7s8ej")
+animation = &"damage"
+autoplay = "full"

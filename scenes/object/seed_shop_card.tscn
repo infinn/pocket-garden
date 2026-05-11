@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://bmjbti5ol0ayl"]
+
+[ext_resource type="Script" uid="uid://ded2qf2n2twi2" path="res://scripts/shop_item.gd" id="1_yugp7"]
+[ext_resource type="Texture2D" uid="uid://bu63g7iyqa6x4" path="res://assests/sprites/ui/bg-shop-seed.png" id="2_64dnb"]
+[ext_resource type="Texture2D" uid="uid://c45ksxmj64wqr" path="res://assests/sprites/ui/money/coin.png" id="4_tquwa"]
+[ext_resource type="FontFile" uid="uid://d0mh6weito61i" path="res://assests/fonts/minecraft.ttf" id="5_6x1bf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3sydn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kj06"]
+atlas = ExtResource("4_tquwa")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ue8wf"]
+atlas = ExtResource("4_tquwa")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5s108"]
+atlas = ExtResource("4_tquwa")
+region = Rect2(40, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_64dnb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kj06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ue8wf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5s108")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ue8wf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xorgm"]
+font = ExtResource("5_6x1bf")
+font_size = 8
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Panel" type="Panel" unique_id=176044945]
+process_mode = 3
+custom_minimum_size = Vector2(50, 70)
+offset_right = 50.0
+offset_bottom = 70.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3sydn")
+script = ExtResource("1_yugp7")
+
+[node name="bg" type="TextureRect" parent="." unique_id=1875233598]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 70.0
+texture = ExtResource("2_64dnb")
+
+[node name="Sprite" type="TextureRect" parent="." unique_id=829689752]
+layout_mode = 0
+offset_left = 11.000001
+offset_top = 17.0
+offset_right = 51.0
+offset_bottom = 57.0
+scale = Vector2(0.7, 0.7)
+
+[node name="Coin" type="AnimatedSprite2D" parent="." unique_id=951594314]
+position = Vector2(8.999998, 60.999996)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_64dnb")
+autoplay = "default"
+
+[node name="Price" type="Label" parent="." unique_id=1352451112]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 58.0
+offset_right = 47.0
+offset_bottom = 66.0
+text = "0"
+label_settings = SubResource("LabelSettings_xorgm")
+vertical_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

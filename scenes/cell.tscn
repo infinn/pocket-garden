@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cdovwjpbtd454"]
+
+[ext_resource type="Script" uid="uid://bivl3kfw2weor" path="res://scripts/cell_plant.gd" id="1_upbjj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0s7o3"]
+size = Vector2(30, 35)
+
+[node name="cell_place_plant" type="Area2D" unique_id=1533354928]
+z_index = 5
+z_as_relative = false
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_upbjj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1634300529]
+shape = SubResource("RectangleShape2D_0s7o3")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

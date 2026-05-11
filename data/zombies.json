@@ -1,0 +1,202 @@
+[
+	{
+		"name":"zombie",
+		"hp":270,
+		"attack-speed":1,
+		"speed":4.5,
+		"armor":0,
+		"death-hp":89
+	},
+	{
+		"name":"Flag zombie",
+		"hp":270,
+		"attack-speed":1,
+		"speed":3.7,
+		"armor":0,
+		"death-hp":89
+	},
+	{
+		"name":"Conehead zombie",
+		"hp":270,
+		"attack-speed":1,
+		"speed":4.7,
+		"armor":370,
+		"death-hp":89
+	},
+	{
+		"name":"Pole Vaulting Zombie",
+		"hp":500,
+		"attack-speed":1,
+		"speed":2.5,
+		"armor":0,
+		"death-hp":165
+	},
+	{
+		"name":"Buckethead Zombie",
+		"hp":270,
+		"attack-speed":1,
+		"speed":4.7,
+		"armor":1100,
+		"death-hp":89
+	},
+	{
+		"name":"Newspaper Zombie",
+		"hp":270,
+		"attack-speed":1,
+		"speed":4.7,
+		"armor":150,
+		"death-hp":89
+	},
+	{
+		"name":"Screen Door Zombie",
+		"hp":270,
+		"attack-speed":1,
+		"speed":4.7,
+		"armor":1100,
+		"death-hp":89
+	},
+	{
+		"name":"Football Zombie",
+		"hp":270,
+		"attack-speed":1,
+		"speed":9.4,
+		"armor":1400,
+		"death-hp":89
+	},
+	{
+		"name":"Backup Dancer",
+		"hp":270,
+		"attack-speed":1,
+		"speed":3.4,
+		"armor":0,
+		"death-hp":89
+	},
+	{
+		"name":"Dancing Zombie",
+		"hp":500,
+		"attack-speed":1,
+		"speed":3.4,
+		"armor":0,
+		"death-hp":165
+	},
+	{
+		"name":"Ducky Tube Zombie",
+		"hp":270,
+		"attack-speed":1,
+		"speed":4.7,
+		"armor":0,
+		"death-hp":89
+	},
+	{
+		"name":"Snorkel Zombie",
+		"hp":270,
+		"attack-speed":1,
+		"speed":4,
+		"armor":0,
+		"death-hp":89
+	},
+	{
+		"name":"Zombie Bobsled Team",
+		"hp":181,
+		"attack-speed":1,
+		"speed":4.7,
+		"armor":300,
+		"death-hp":89
+	},
+	{
+		"name":"Zomboni",
+		"hp":1151,
+		"attack-speed":0,
+		"speed":4.7,
+		"armor":0,
+		"death-hp":199
+	},
+	{
+		"name":"Dolphin Rider Zombie",
+		"hp":500,
+		"attack-speed":1,
+		"speed":9.4,
+		"armor":0,
+		"death-hp":165
+	},
+	{
+		"name":"Jack-in-the-Box Zombie",
+		"hp":500,
+		"attack-speed":1,
+		"speed":6.5,
+		"armor":0,
+		"death-hp":165
+	},
+	{
+		"name":"Balloon Zombie",
+		"hp":181,
+		"attack-speed":1,
+		"speed":9.4,
+		"armor":20,
+		"death-hp":89
+	},
+	{
+		"name":"Digger Zombie",
+		"hp":181,
+		"attack-speed":1,
+		"speed":10,
+		"armor":100,
+		"death-hp":89
+	},
+	{
+		"name":"Pogo Zombie",
+		"hp":500,
+		"attack-speed":1,
+		"speed":9.8,
+		"armor":0,
+		"death-hp":165
+	},
+	{
+		"name":"Zombie Yeti",
+		"hp":901,
+		"attack-speed":1,
+		"speed":3,
+		"armor":0,
+		"death-hp":449
+	},
+	{
+		"name":"Bungee Zombie",
+		"hp":450,
+		"attack-speed":1,
+		"speed":4,
+		"armor":0,
+		"death-hp":165
+	},
+	{
+		"name":"Ladder Zombie",
+		"hp":335,
+		"attack-speed":1,
+		"speed":8.5,
+		"armor":500,
+		"death-hp":165
+	},
+	{
+		"name":"Catapult Zombie",
+		"hp":651,
+		"attack-speed":2,
+		"speed":9.4,
+		"armor":500,
+		"death-hp":199
+	},
+	{
+		"name":"Gargantuar",
+		"hp":3000,
+		"attack-speed":1,
+		"speed":4.7,
+		"armor":0,
+		"death-hp":0
+	},
+	{
+		"name":"Imp",
+		"hp":181,
+		"attack-speed":1,
+		"speed":9.8,
+		"armor":0,
+		"death-hp":89
+	}
+]

@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://bts46u00461dw"]
+
+[ext_resource type="PackedScene" uid="uid://d3uijyl5ypoh5" path="res://scenes/characters/attack_plant.tscn" id="1_ukadq"]
+[ext_resource type="PackedScene" uid="uid://bte3ny0ojyyr6" path="res://scenes/object/peashooter_bullet.tscn" id="2_7aon8"]
+[ext_resource type="Texture2D" uid="uid://0yg81av4vngl" path="res://assests/sprites/characters/plants/repeater/sprite.png" id="3_6ayht"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4alw"]
+atlas = ExtResource("3_6ayht")
+region = Rect2(0, 0, 29, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4u35"]
+atlas = ExtResource("3_6ayht")
+region = Rect2(29, 0, 29, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ug25v"]
+atlas = ExtResource("3_6ayht")
+region = Rect2(58, 0, 29, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oph7n"]
+atlas = ExtResource("3_6ayht")
+region = Rect2(87, 0, 29, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkvs8"]
+atlas = ExtResource("3_6ayht")
+region = Rect2(116, 0, 29, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5idiy"]
+atlas = ExtResource("3_6ayht")
+region = Rect2(0, 31, 29, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gxjf"]
+atlas = ExtResource("3_6ayht")
+region = Rect2(29, 31, 29, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6r0du"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4alw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4u35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ug25v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oph7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkvs8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5idiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gxjf")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" unique_id=569530588 instance=ExtResource("1_ukadq")]
+plant_name = "Repeater"
+bullet_instantiate = ExtResource("2_7aon8")
+bullet_number = 2
+
+[node name="CPUParticles2D" parent="." index="2" unique_id=209789971]
+emitting = false
+
+[node name="AnimatedSprite2D" parent="." index="3" unique_id=12567739]
+sprite_frames = SubResource("SpriteFrames_6r0du")
+animation = &"shoot"
+
+[node name="Marker2D" parent="." index="4" unique_id=912486108]
+position = Vector2(0, -7)
+
+[node name="RayCast2D" parent="." index="5" unique_id=1555318428]
+position = Vector2(0, 0)

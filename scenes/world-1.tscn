@@ -1,0 +1,222 @@
+[gd_scene format=3 uid="uid://dk1aomboh52oo"]
+
+[ext_resource type="Texture2D" uid="uid://eiods231leo" path="res://assests/sprites/location/world1.png" id="1_0uie1"]
+[ext_resource type="Script" uid="uid://gnvtxk6g0ejd" path="res://scripts/world_1.gd" id="1_6ggfw"]
+[ext_resource type="AudioStream" uid="uid://dayj8y2sbs1l7" path="res://assests/audio/sfx/start_zombies.wav" id="2_7gv10"]
+[ext_resource type="AudioStream" uid="uid://bhskeg2avq36h" path="res://assests/audio/sfx/shovel_click.wav" id="3_34fgs"]
+[ext_resource type="AudioStream" uid="uid://sodj47pmt24i" path="res://assests/audio/sfx/shovel_remove.wav" id="3_fqgn5"]
+[ext_resource type="PackedScene" uid="uid://b4rjpd5ua3dko" path="res://scenes/main_ui.tscn" id="4_0uie1"]
+[ext_resource type="PackedScene" uid="uid://bksbochy1xr2g" path="res://scenes/object/lawnmower.tscn" id="5_6ggfw"]
+[ext_resource type="PackedScene" uid="uid://c7o2rxh5t0sym" path="res://scenes/object/cursor_plant.tscn" id="5_ybedf"]
+[ext_resource type="Texture2D" uid="uid://b04hu3wpfytfw" path="res://assests/sprites/ui/shop.png" id="6_6ggfw"]
+[ext_resource type="Texture2D" uid="uid://cd46s4wrkcsbs" path="res://assests/sprites/ui/shovel-slot.png" id="7_fb44m"]
+[ext_resource type="Texture2D" uid="uid://chyrk52gam7op" path="res://assests/sprites/ui/progres-bar.png" id="7_irhpv"]
+[ext_resource type="Texture2D" uid="uid://dm4ye5wl665jn" path="res://assests/sprites/ui/progres-bar-head.png" id="8_evulj"]
+[ext_resource type="Texture2D" uid="uid://bncrfne0u3lg" path="res://assests/sprites/ui/progres-bar-texture.png" id="9_evulj"]
+[ext_resource type="Texture2D" uid="uid://dd47l7mkd34kk" path="res://assests/sprites/ui/option/option-buton.png" id="9_gf44q"]
+[ext_resource type="PackedScene" uid="uid://bovs3yh5rpshl" path="res://scenes/object/cursor_shovel.tscn" id="9_tab74"]
+[ext_resource type="FontFile" uid="uid://dcg0v3it88i0n" path="res://assests/fonts/PixelifySans.ttf" id="10_1o7tj"]
+[ext_resource type="Texture2D" uid="uid://b3t22atr5sx7g" path="res://assests/sprites/ui/option/option-text-.png" id="10_icmqp"]
+[ext_resource type="Texture2D" uid="uid://dc5vsxb78whii" path="res://assests/sprites/ui/option/option-text-hover.png" id="11_7gv10"]
+[ext_resource type="Texture2D" uid="uid://cia3fgyfr7aor" path="res://assests/sprites/ui/money/bag.png" id="11_wguo8"]
+[ext_resource type="FontFile" uid="uid://d0mh6weito61i" path="res://assests/fonts/minecraft.ttf" id="13_tab74"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1o7tj"]
+size = Vector2(20, 192)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l6cfy"]
+font = ExtResource("13_tab74")
+font_size = 14
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fqgn5"]
+font = ExtResource("13_tab74")
+font_size = 18
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1o7tj"]
+texture = ExtResource("9_evulj")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_irhpv"]
+bg_color = Color(0.03137255, 0.03137255, 0.03137255, 1)
+
+[node name="Main" type="Node2D" unique_id=1854526415]
+script = ExtResource("1_6ggfw")
+
+[node name="StartZombie" type="AudioStreamPlayer2D" parent="." unique_id=476170741]
+stream = ExtResource("2_7gv10")
+volume_db = -20.0
+
+[node name="ShovelClick" type="AudioStreamPlayer2D" parent="." unique_id=1214659295]
+stream = ExtResource("3_34fgs")
+volume_db = -20.0
+
+[node name="ShovelRemove" type="AudioStreamPlayer2D" parent="." unique_id=637110784]
+stream = ExtResource("3_fqgn5")
+volume_db = -20.0
+
+[node name="World1" type="Sprite2D" parent="." unique_id=280403089]
+position = Vector2(321, 95.5)
+texture = ExtResource("1_0uie1")
+
+[node name="AreaLoseGame" type="Area2D" parent="." unique_id=210767013]
+light_mask = 0
+visibility_layer = 4
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaLoseGame" unique_id=585752864]
+light_mask = 0
+visibility_layer = 4
+position = Vector2(29, 96)
+shape = SubResource("RectangleShape2D_1o7tj")
+debug_color = Color(0.8999735, 0.26701918, 0.42534304, 0.41960785)
+
+[node name="HUD" parent="." unique_id=845085915 instance=ExtResource("4_0uie1")]
+z_index = 60
+custom_minimum_size = Vector2(90, 191)
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 90.0
+offset_bottom = 250.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="cursor_plant" parent="." unique_id=1504841456 instance=ExtResource("5_ybedf")]
+z_index = 100
+
+[node name="cell" type="Node2D" parent="." unique_id=1235905366]
+position = Vector2(92, 76)
+
+[node name="plants" type="Node2D" parent="." unique_id=1109172417]
+
+[node name="Timer_zombie" type="Timer" parent="." unique_id=863424964]
+one_shot = true
+
+[node name="Timer_spawn" type="Timer" parent="." unique_id=2030953490]
+wait_time = 120.0
+one_shot = true
+
+[node name="Lawnmmower" parent="." unique_id=1321729350 instance=ExtResource("5_6ggfw")]
+position = Vector2(75, 162)
+
+[node name="Lawnmmower3" parent="." unique_id=1731532986 instance=ExtResource("5_6ggfw")]
+position = Vector2(75, 90)
+
+[node name="Lawnmmower2" parent="." unique_id=178435705 instance=ExtResource("5_6ggfw")]
+position = Vector2(75, 128)
+
+[node name="line" type="Node2D" parent="." unique_id=1548056786]
+
+[node name="line1" type="Marker2D" parent="line" unique_id=1805184580]
+position = Vector2(661, 82)
+
+[node name="line2" type="Marker2D" parent="line" unique_id=1586282390]
+position = Vector2(661, 115)
+
+[node name="line3" type="Marker2D" parent="line" unique_id=1846291901]
+position = Vector2(661, 154)
+
+[node name="Shop" type="Sprite2D" parent="." unique_id=799346398]
+visible = false
+position = Vector2(465, 35)
+texture = ExtResource("6_6ggfw")
+
+[node name="HUDRigth" type="Control" parent="." unique_id=504963809]
+z_index = 60
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 430.0
+offset_right = 644.0
+offset_bottom = 45.0
+grow_horizontal = 0
+
+[node name="ButtonShovel" type="Button" parent="HUDRigth" unique_id=1140721644]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 19.0
+offset_right = 58.0
+offset_bottom = 42.0
+icon = ExtResource("7_fb44m")
+flat = true
+
+[node name="Bag" type="Sprite2D" parent="HUDRigth" unique_id=1193364493]
+position = Vector2(-111, 17)
+texture = ExtResource("11_wguo8")
+
+[node name="MoneyLabel" type="Label" parent="HUDRigth" unique_id=523178185]
+layout_mode = 0
+offset_left = -99.0
+offset_top = 9.0
+offset_right = -59.0
+offset_bottom = 32.0
+text = "0"
+label_settings = SubResource("LabelSettings_l6cfy")
+vertical_alignment = 1
+
+[node name="CursorShovel" parent="HUDRigth" unique_id=296118267 instance=ExtResource("9_tab74")]
+position = Vector2(35, 27)
+
+[node name="ProgresBar" type="Sprite2D" parent="HUDRigth" unique_id=189609564]
+position = Vector2(100.599976, 15.199998)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_irhpv")
+
+[node name="ProgresBarHead" type="Sprite2D" parent="HUDRigth" unique_id=444816526]
+position = Vector2(-16, 15.5)
+texture = ExtResource("8_evulj")
+
+[node name="WaveLabel" type="Label" parent="HUDRigth" unique_id=663466947]
+layout_mode = 0
+offset_left = -18.0
+offset_top = 15.0
+offset_right = -5.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("10_1o7tj")
+text = "0"
+label_settings = SubResource("LabelSettings_fqgn5")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="WaveProgressBar" type="ProgressBar" parent="HUDRigth" unique_id=824641259]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 13.0
+offset_right = 196.0
+offset_bottom = 17.0
+theme_override_styles/background = SubResource("StyleBoxTexture_1o7tj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_irhpv")
+value = 50.0
+show_percentage = false
+
+[node name="ButtonOption" type="Button" parent="HUDRigth" unique_id=526996987]
+layout_mode = 0
+offset_left = 96.99999
+offset_top = 19.0
+offset_right = 244.0
+offset_bottom = 59.0
+scale = Vector2(0.7, 0.7)
+icon = ExtResource("9_gf44q")
+flat = true
+
+[node name="OptionText" type="Sprite2D" parent="HUDRigth/ButtonOption" unique_id=1509841607]
+position = Vector2(71.42859, 18.571428)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("10_icmqp")
+
+[node name="OptionTextHover" type="Sprite2D" parent="HUDRigth/ButtonOption" unique_id=627230411]
+visible = false
+position = Vector2(71.42858, 18.571428)
+texture = ExtResource("11_7gv10")
+
+[connection signal="area_entered" from="AreaLoseGame" to="." method="_on_area_lose_game_area_entered"]
+[connection signal="button_down" from="HUDRigth/ButtonShovel" to="." method="_on_button_shovel_button_down"]
+[connection signal="button_down" from="HUDRigth/ButtonOption" to="." method="_on_button_option_button_down"]

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://pv7mru4vre7q"]
+
+[ext_resource type="PackedScene" uid="uid://bubl6s3cvgp24" path="res://scenes/characters/zombies/common.tscn" id="1_tf2os"]
+[ext_resource type="Texture2D" uid="uid://bsytrbwkke0v" path="res://assests/sprites/characters/zombie/bucket-head/bucket.png" id="2_87anh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_607oj"]
+atlas = ExtResource("2_87anh")
+region = Rect2(25, 0, 25, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa6n7"]
+atlas = ExtResource("2_87anh")
+region = Rect2(0, 0, 25, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggkm6"]
+atlas = ExtResource("2_87anh")
+region = Rect2(50, 0, 25, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5jpqs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_607oj")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa6n7")
+}],
+"loop": true,
+"name": &"full",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggkm6")
+}],
+"loop": true,
+"name": &"full-damage",
+"speed": 5.0
+}]
+
+[node name="Zombie" unique_id=1123814587 instance=ExtResource("1_tf2os")]
+zombie_name = "Buckethead Zombie"
+helmet = true
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=351492024]
+frame_progress = 0.13804184
+
+[node name="AnimatedSpriteHelmet" parent="." index="8" unique_id=1445632556]
+position = Vector2(-1, -13)
+sprite_frames = SubResource("SpriteFrames_5jpqs")
+autoplay = "full"

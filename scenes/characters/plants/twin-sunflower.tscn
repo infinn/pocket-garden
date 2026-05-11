@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://50k5d74qkdlc"]
+
+[ext_resource type="PackedScene" uid="uid://gj4v20t5h1bf" path="res://scenes/characters/generation-plant.tscn" id="1_f8tqi"]
+[ext_resource type="Texture2D" uid="uid://ccejmf3oobf2s" path="res://assests/sprites/characters/plants/twin-sunflower/idle.png" id="2_dvlaa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhr3n"]
+atlas = ExtResource("2_dvlaa")
+region = Rect2(0, 0, 50, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fim58"]
+atlas = ExtResource("2_dvlaa")
+region = Rect2(50, 0, 50, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktvm4"]
+atlas = ExtResource("2_dvlaa")
+region = Rect2(100, 0, 50, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kye3d"]
+atlas = ExtResource("2_dvlaa")
+region = Rect2(150, 0, 50, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pq8fc"]
+atlas = ExtResource("2_dvlaa")
+region = Rect2(200, 0, 50, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82k6a"]
+atlas = ExtResource("2_dvlaa")
+region = Rect2(250, 0, 50, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjwpg"]
+atlas = ExtResource("2_dvlaa")
+region = Rect2(300, 0, 50, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx3it"]
+atlas = ExtResource("2_dvlaa")
+region = Rect2(350, 0, 50, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j20mg"]
+atlas = ExtResource("2_dvlaa")
+region = Rect2(400, 0, 50, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahpfu"]
+atlas = ExtResource("2_dvlaa")
+region = Rect2(450, 0, 50, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jwds0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhr3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fim58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktvm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kye3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pq8fc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82k6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjwpg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cx3it")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j20mg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahpfu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" unique_id=866709296 instance=ExtResource("1_f8tqi")]
+plant_name = "Twin Sunflower"
+sun_generation = 50
+
+[node name="AnimatedSprite2D" parent="." index="2" unique_id=439076082]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_jwds0")
+animation = &"idle"
+autoplay = "idle"

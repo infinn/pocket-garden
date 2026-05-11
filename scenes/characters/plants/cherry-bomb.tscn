@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://do5he703l52cl"]
+
+[ext_resource type="Texture2D" uid="uid://buweu4w88r3u" path="res://assests/sprites/planting-animation.png" id="1_fjqtt"]
+[ext_resource type="Script" uid="uid://dndniwgenkogu" path="res://scripts/cherry_bomb.gd" id="1_lhof4"]
+[ext_resource type="Texture2D" uid="uid://d4j3niogtjpfh" path="res://assests/sprites/characters/plants/cherry-bomb/idle.png" id="2_lhof4"]
+[ext_resource type="Texture2D" uid="uid://q1puyncgdhji" path="res://assests/sprites/characters/plants/cherry-bomb/explotion.png" id="3_heyn6"]
+[ext_resource type="AudioStream" uid="uid://d3kjobjiw8huc" path="res://assests/audio/sfx/plant/explotion.wav" id="5_heyn6"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pv25s"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l16bb"]
+atlas = ExtResource("2_lhof4")
+region = Rect2(1, 1, 52, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fn6b"]
+atlas = ExtResource("2_lhof4")
+region = Rect2(54, 1, 52, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urhl1"]
+atlas = ExtResource("2_lhof4")
+region = Rect2(107, 1, 52, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt5eh"]
+atlas = ExtResource("2_lhof4")
+region = Rect2(160, 1, 52, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1cvd"]
+atlas = ExtResource("2_lhof4")
+region = Rect2(213, 1, 52, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v38jc"]
+atlas = ExtResource("2_lhof4")
+region = Rect2(266, 1, 52, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rp17c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l16bb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fn6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urhl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt5eh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1cvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v38jc")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjovx"]
+size = Vector2(94, 94)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hmpir"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Curve" id="Curve_bfxvk"]
+_data = [Vector2(0, 0), 0.0, 0.06615178, 0, 0, Vector2(0.12666667, 1), 0.24500644, 0.24500644, 0, 0, Vector2(0.89333344, 1), 0.052668545, 0.052668545, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=929684584]
+script = ExtResource("1_lhof4")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2146913939]
+material = SubResource("CanvasItemMaterial_pv25s")
+position = Vector2(0, 12)
+amount = 1
+texture = ExtResource("1_fjqtt")
+lifetime = 1.5
+one_shot = true
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, 0)
+anim_speed_min = 2.5
+anim_speed_max = 2.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=726224359]
+sprite_frames = SubResource("SpriteFrames_rp17c")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=1825648786]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=679464021]
+light_mask = 0
+visibility_layer = 4
+shape = SubResource("RectangleShape2D_xjovx")
+debug_color = Color(0.96779925, 6.738305e-07, 0.47500032, 0.41960785)
+
+[node name="Timer" type="Timer" parent="." unique_id=242247331]
+one_shot = true
+autostart = true
+
+[node name="BombExplotion" type="CPUParticles2D" parent="." unique_id=1117278007]
+material = SubResource("CanvasItemMaterial_hmpir")
+emitting = false
+amount = 1
+texture = ExtResource("3_heyn6")
+lifetime = 3.0
+one_shot = true
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+scale_amount_curve = SubResource("Curve_bfxvk")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[node name="ExplotionSFX" type="AudioStreamPlayer2D" parent="." unique_id=609663855]
+stream = ExtResource("5_heyn6")
+volume_db = -20.0

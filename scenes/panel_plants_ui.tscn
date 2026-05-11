@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://c1ltbtfxvb0fl"]
+
+[ext_resource type="Texture2D" uid="uid://duw1qej0k68n1" path="res://assests/sprites/characters/plants/peashooter/shop.png" id="1_b53u4"]
+[ext_resource type="Script" uid="uid://bfkspdjxnvxnc" path="res://scripts/panel_plant.gd" id="1_d325a"]
+[ext_resource type="FontFile" uid="uid://dcg0v3it88i0n" path="res://assests/fonts/PixelifySans.ttf" id="3_da0gn"]
+[ext_resource type="AudioStream" uid="uid://dh1nsfuglv202" path="res://assests/audio/sfx/plant_select.wav" id="4_b1atj"]
+[ext_resource type="FontFile" uid="uid://d0mh6weito61i" path="res://assests/fonts/minecraft.ttf" id="4_f5x07"]
+[ext_resource type="AudioStream" uid="uid://beykgdm4mf2sx" path="res://assests/audio/sfx/not.wav" id="5_jhet6"]
+[ext_resource type="AudioStream" uid="uid://ce4kl5lcwtoc2" path="res://assests/audio/sfx/plant/plant.wav" id="5_vpsej"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_da0gn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jhet6"]
+font = ExtResource("4_f5x07")
+font_size = 10
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d325a"]
+bg_color = Color(1, 1, 1, 0)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b53u4"]
+bg_color = Color(0, 0, 0, 0.5764706)
+corner_detail = 1
+
+[node name="PanelPlants" type="Panel" unique_id=1332334747]
+custom_minimum_size = Vector2(30, 30)
+offset_right = 30.0
+offset_bottom = 30.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_da0gn")
+script = ExtResource("1_d325a")
+
+[node name="Timer" type="Timer" parent="." unique_id=1175351897]
+one_shot = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1274625345]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_b53u4")
+
+[node name="Label" type="Label" parent="." unique_id=204959312]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -25.0
+offset_right = -4.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_da0gn")
+theme_override_font_sizes/font_size = 12
+text = "99"
+label_settings = SubResource("LabelSettings_jhet6")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1696099226]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -29.0
+offset_right = -2.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_behavior_recursive = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_d325a")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b53u4")
+value = 50.0
+fill_mode = 2
+show_percentage = false
+
+[node name="CantBuySFX" type="AudioStreamPlayer2D" parent="." unique_id=47061100]
+stream = ExtResource("5_jhet6")
+volume_db = -20.0
+
+[node name="ClickSFX" type="AudioStreamPlayer2D" parent="." unique_id=1044856204]
+stream = ExtResource("4_b1atj")
+volume_db = -20.0
+
+[node name="PlantSFX" type="AudioStreamPlayer2D" parent="." unique_id=1708338762]
+stream = ExtResource("5_vpsej")
+volume_db = -20.0
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bovs3yh5rpshl"]
+
+[ext_resource type="Script" uid="uid://bxwgr8fbjeqya" path="res://scripts/cursor_shovel.gd" id="1_rb68r"]
+[ext_resource type="Texture2D" uid="uid://bo1henxijcckf" path="res://assests/sprites/ui/shovel.png" id="2_sjqld"]
+
+[node name="CursorShovel" type="Node2D" unique_id=296118267]
+script = ExtResource("1_rb68r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=21312828]
+texture = ExtResource("2_sjqld")

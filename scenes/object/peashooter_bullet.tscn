@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bte3ny0ojyyr6"]
+
+[ext_resource type="Script" uid="uid://dlrthwpt5e685" path="res://scripts/bullet.gd" id="1_03ilp"]
+[ext_resource type="Texture2D" uid="uid://bd7u5sbjnjoc3" path="res://assests/sprites/characters/plants/peashooter/bullet.png" id="1_su88c"]
+[ext_resource type="AudioStream" uid="uid://crhmbmna46sjv" path="res://assests/audio/sfx/plant/peashooter_splash.wav" id="3_pmdyu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_su88c"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03ilp"]
+atlas = ExtResource("1_su88c")
+region = Rect2(1, 0, 12, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmdyu"]
+atlas = ExtResource("1_su88c")
+region = Rect2(14, 0, 12, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqpfv"]
+atlas = ExtResource("1_su88c")
+region = Rect2(28, 0, 14, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rmhpo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03ilp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03ilp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmdyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqpfv")
+}],
+"loop": false,
+"name": &"splash",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D" unique_id=1459583768]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_03ilp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=251168701]
+light_mask = 0
+visibility_layer = 4
+shape = SubResource("CircleShape2D_su88c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=917310607]
+sprite_frames = SubResource("SpriteFrames_rmhpo")
+animation = &"splash"
+autoplay = "default"
+frame = 2
+frame_progress = 1.0
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1681735293]
+
+[node name="SplashSFX" type="AudioStreamPlayer2D" parent="." unique_id=1117761077]
+stream = ExtResource("3_pmdyu")
+volume_db = -20.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

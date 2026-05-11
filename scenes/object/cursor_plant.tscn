@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c7o2rxh5t0sym"]
+
+[ext_resource type="Script" uid="uid://vkm3yan6ny40" path="res://scripts/cursor_plant.gd" id="1_gkuc3"]
+
+[node name="cursor_plant" type="Node2D" unique_id=1504841456]
+script = ExtResource("1_gkuc3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1656411397]
+self_modulate = Color(1, 1, 1, 0.85490197)

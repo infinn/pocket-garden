@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bksbochy1xr2g"]
+
+[ext_resource type="Script" uid="uid://c7ljwtkcto3bc" path="res://scripts/lawnmower.gd" id="1_2mb82"]
+[ext_resource type="Texture2D" uid="uid://bh5kco38anfdv" path="res://assests/sprites/lawnmower.png" id="1_p52fg"]
+[ext_resource type="AudioStream" uid="uid://dgaa1aebgvewq" path="res://assests/audio/sfx/lawnmmover.wav" id="2_qh36a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mb82"]
+size = Vector2(20, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qh36a"]
+atlas = ExtResource("1_p52fg")
+region = Rect2(0, 0, 24, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hyhcs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qh36a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p52fg"]
+size = Vector2(4, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qh36a"]
+size = Vector2(23, 8)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1321729350]
+script = ExtResource("1_2mb82")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1338754852]
+position = Vector2(16, 0)
+stream = ExtResource("2_qh36a")
+volume_db = -20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1900460688]
+light_mask = 0
+visibility_layer = 4
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_2mb82")
+debug_color = Color(0, 0.62645227, 0.5182584, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=261988863]
+sprite_frames = SubResource("SpriteFrames_hyhcs")
+
+[node name="detection" type="Area2D" parent="." unique_id=1129026928]
+collision_layer = 0
+collision_mask = 4
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection" unique_id=1611900918]
+light_mask = 0
+visibility_layer = 4
+position = Vector2(16, 0)
+shape = SubResource("RectangleShape2D_p52fg")
+debug_color = Color(4.813075e-08, 0.6239545, 0.53600115, 0.41960785)
+
+[node name="Areadamage" type="Area2D" parent="." unique_id=180419616]
+collision_layer = 0
+collision_mask = 4
+
+[node name="coliision-damage" type="CollisionShape2D" parent="Areadamage" unique_id=657303896]
+light_mask = 0
+visibility_layer = 4
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_qh36a")
+debug_color = Color(0.9336668, 0.23204306, 0.2999523, 0.41960785)
+
+[connection signal="area_entered" from="detection" to="." method="_on_detection_area_entered_detection"]
+[connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]
+[connection signal="area_entered" from="Areadamage" to="." method="_on_areadamage_area_entered_damage"]
+[connection signal="body_entered" from="Areadamage" to="." method="_on_areadamage_body_entered_area_damage"]

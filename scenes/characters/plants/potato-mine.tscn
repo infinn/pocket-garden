@@ -1,0 +1,192 @@
+[gd_scene format=3 uid="uid://bpbcword3blln"]
+
+[ext_resource type="Script" uid="uid://024w40847gso" path="res://scripts/potato_mine.gd" id="1_8gvyi"]
+[ext_resource type="Texture2D" uid="uid://kbexvf28sf4t" path="res://assests/sprites/characters/plants/potato-mine/idle.png" id="2_1wval"]
+[ext_resource type="Texture2D" uid="uid://buweu4w88r3u" path="res://assests/sprites/planting-animation.png" id="2_ji1b6"]
+[ext_resource type="Texture2D" uid="uid://b1jbgwjyox6x" path="res://assests/sprites/characters/plants/potato-mine/preparation.png" id="3_ji1b6"]
+[ext_resource type="Texture2D" uid="uid://cj4dqupw7whse" path="res://assests/sprites/characters/plants/potato-mine/text.png" id="4_smmsc"]
+[ext_resource type="Texture2D" uid="uid://5jccvgy2mu16" path="res://assests/sprites/characters/plants/potato-mine/explotion.png" id="5_lsjvd"]
+[ext_resource type="AudioStream" uid="uid://d3kjobjiw8huc" path="res://assests/audio/sfx/plant/explotion.wav" id="7_smmsc"]
+[ext_resource type="AudioStream" uid="uid://17lwfnxows7u" path="res://assests/audio/sfx/plant/potato_mine.wav" id="8_lsjvd"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_smmsc"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpyj8"]
+size = Vector2(20, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0b46"]
+atlas = ExtResource("2_1wval")
+region = Rect2(1, 1, 29, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6omc4"]
+atlas = ExtResource("2_1wval")
+region = Rect2(31, 1, 29, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m38dm"]
+atlas = ExtResource("2_1wval")
+region = Rect2(61, 1, 29, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24a6a"]
+atlas = ExtResource("2_1wval")
+region = Rect2(91, 1, 29, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrrc2"]
+atlas = ExtResource("2_1wval")
+region = Rect2(121, 1, 29, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4tol"]
+atlas = ExtResource("3_ji1b6")
+region = Rect2(1, 1, 29, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38fkd"]
+atlas = ExtResource("3_ji1b6")
+region = Rect2(31, 1, 29, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_autl3"]
+atlas = ExtResource("3_ji1b6")
+region = Rect2(61, 1, 29, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bi8if"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0b46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6omc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m38dm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24a6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrrc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24a6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m38dm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6omc4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4tol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38fkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_autl3")
+}],
+"loop": false,
+"name": &"preparation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gvyi"]
+size = Vector2(48, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1wval"]
+size = Vector2(24, 10)
+
+[sub_resource type="Curve" id="Curve_7d3vt"]
+_data = [Vector2(0, 0), 0.0, 0.06615178, 0, 0, Vector2(0.2675159, 0.79775286), 0.24500644, 0.24500644, 0, 0, Vector2(0.7579618, 0.8651686), 0.17210191, 0.17210191, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=2122083441]
+script = ExtResource("1_8gvyi")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1976210252]
+material = SubResource("CanvasItemMaterial_smmsc")
+position = Vector2(0, 12)
+emitting = false
+amount = 1
+texture = ExtResource("2_ji1b6")
+lifetime = 1.5
+one_shot = true
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, 0)
+anim_speed_min = 2.5
+anim_speed_max = 2.5
+
+[node name="hitbox" type="Area2D" parent="." unique_id=1411610406]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=996075834]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_qpyj8")
+debug_color = Color(2.4065375e-07, 0.6378335, 0.38425696, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=442666600]
+sprite_frames = SubResource("SpriteFrames_bi8if")
+animation = &"preparation"
+autoplay = "preparation"
+frame = 2
+frame_progress = 1.0
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=1564252163]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1687963758]
+light_mask = 0
+visibility_layer = 4
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_8gvyi")
+debug_color = Color(0.96779925, 6.738305e-07, 0.47500032, 0.41960785)
+
+[node name="Timer" type="Timer" parent="." unique_id=1141070214]
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1086857785]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1384193034]
+light_mask = 0
+visibility_layer = 4
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_1wval")
+
+[node name="TextEmition" type="CPUParticles2D" parent="." unique_id=28609183]
+emitting = false
+amount = 1
+texture = ExtResource("4_smmsc")
+lifetime = 2.0
+one_shot = true
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 32.61
+initial_velocity_max = 32.61
+scale_amount_curve = SubResource("Curve_7d3vt")
+
+[node name="Explotion" type="Sprite2D" parent="." unique_id=758136318]
+visible = false
+position = Vector2(0, 2)
+texture = ExtResource("5_lsjvd")
+
+[node name="ExplotionSFX" type="AudioStreamPlayer2D" parent="." unique_id=142531333]
+stream = ExtResource("7_smmsc")
+volume_db = -20.0
+
+[node name="PreparationSFX" type="AudioStreamPlayer2D" parent="." unique_id=791306160]
+stream = ExtResource("8_lsjvd")
+volume_db = -20.0
+
+[connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_area_entered"]
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]

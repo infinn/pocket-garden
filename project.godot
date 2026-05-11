@@ -1,0 +1,74 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
+[application]
+
+config/name="Pocket Garden"
+config/version="0.4.5"
+run/main_scene="uid://utxyeuvotm1g"
+config/features=PackedStringArray("4.6", "Forward Plus")
+run/max_fps=60
+boot_splash/bg_color=Color(0.14117648, 0.14117648, 0.14117648, 0)
+boot_splash/image="uid://duebrbcp7ewgf"
+config/icon="uid://cj7tbrxg8gfas"
+boot_splash/minimum_display_time=2000
+
+[autoload]
+
+Global="*uid://bdfap7c35gmln"
+DataManager="*uid://cldd4yvmje73i"
+SaveManager="*uid://byxh0g3388ktu"
+GameManager="*uid://cyqufgyad08o3"
+WaveData="*uid://bkvwtta7feck2"
+
+[display]
+
+window/size/viewport_width=642
+window/size/viewport_height=191
+window/size/resizable=false
+window/size/borderless=true
+window/size/always_on_top=true
+window/size/transparent=true
+window/size/sharp_corners=true
+window/size/window_width_override=642
+window/size/window_height_override=191
+window/energy_saving/keep_screen_on=false
+window/stretch/mode="canvas_items"
+window/per_pixel_transparency/allowed=true
+
+[input]
+
+left-click={
+"deadzone": 1.0,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+right-click={
+"deadzone": 1.0,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+
+[layer_names]
+
+2d_physics/layer_1="Main"
+2d_physics/layer_2="Plants"
+2d_physics/layer_3="Zombies"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+viewport/transparent_background=true

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://mohgx3fays5n"]
+
+[ext_resource type="Script" uid="uid://wc03qfc6wfu6" path="res://scripts/defense_plant.gd" id="1_g5am7"]
+[ext_resource type="Texture2D" uid="uid://buweu4w88r3u" path="res://assests/sprites/planting-animation.png" id="2_bq3bp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bq3bp"]
+size = Vector2(30, 35)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k31xq"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1256326416]
+script = ExtResource("1_g5am7")
+
+[node name="hitbox" type="Area2D" parent="." unique_id=1194249391]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1123920639]
+shape = SubResource("RectangleShape2D_bq3bp")
+debug_color = Color(0, 0.64194757, 0.33111188, 0.41960785)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=408702427]
+material = SubResource("CanvasItemMaterial_k31xq")
+position = Vector2(0, 6)
+amount = 1
+texture = ExtResource("2_bq3bp")
+lifetime = 1.5
+one_shot = true
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, 0)
+anim_speed_min = 2.5
+anim_speed_max = 2.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=993855247]
