@@ -24,6 +24,7 @@ var previus_state
 @export var zombie_name = "Flag zombie"
 @export var attack_damage : int = 100
 @export var helmet : bool = false
+@export var lane : int = 0
 
 
 var zombie_stats: Dictionary = {}
@@ -198,3 +199,4 @@ func drop_money():
 	Global.add_money(5)
 	money_sfx.play()
 	money_particle.emitting = true
+# olamiamor teamo mucho mucho :3 <3

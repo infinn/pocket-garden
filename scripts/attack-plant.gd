@@ -37,6 +37,7 @@ func shoot():
 
 func spawn_bullet():
 	var bullet = bullet_instantiate.instantiate()
+	bullet.lane = cell_plant.y
 	
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = marker_2d.global_position

@@ -124,6 +124,7 @@ func spawn_zombie(zombie):
 		
 		new_zombie.z_index = lane_index
 		new_zombie.global_position = select_point.global_position
+		new_zombie.lane = lane_index
 		
 		get_parent().add_child(new_zombie)
 

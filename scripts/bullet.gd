@@ -2,6 +2,7 @@ class_name bullet
 extends Area2D
 
 var speed : float = 100.0
+var lane: int
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var splash_sfx: AudioStreamPlayer2D = $SplashSFX
@@ -15,7 +16,7 @@ func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	var taget_zombie = area.get_parent()
-	if taget_zombie is MainZombie:
+	if taget_zombie is MainZombie and taget_zombie.lane == lane:
 		sprite.play("splash")
 		
 		taget_zombie.take_damage(10)
