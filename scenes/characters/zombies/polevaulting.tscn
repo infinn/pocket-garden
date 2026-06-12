@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ohp3pmq78t" path="res://assests/sprites/characters/zombie/pole-vaulting/walk_3.png" id="6_82jx8"]
 [ext_resource type="Texture2D" uid="uid://wvybcpujyoqu" path="res://assests/sprites/characters/zombie/pole-vaulting/walk_4.png" id="7_b3lbg"]
 [ext_resource type="Script" uid="uid://bdurwwoktytlb" path="res://scripts/polevaulting_zombie.gd" id="8_pole"]
+[ext_resource type="Texture2D" uid="uid://d2jy0s151f3d6" path="res://assests/sprites/characters/zombie/pole-vaulting/head.png" id="14_pg7fa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2puyo"]
 atlas = ExtResource("2_syfe0")
@@ -606,3 +607,6 @@ sprite_frames = SubResource("SpriteFrames_64emo")
 animation = &"walk_w_pole"
 autoplay = "walk_w_pole"
 frame_progress = 0.0
+
+[node name="HeadParticle" parent="." index="8" unique_id=727257903]
+texture = ExtResource("14_pg7fa")
