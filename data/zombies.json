@@ -27,7 +27,7 @@
 		"name":"Pole Vaulting Zombie",
 		"hp":500,
 		"attack-speed":1,
-		"speed":2.5,
+		"speed":9.4,
 		"armor":0,
 		"death-hp":165
 	},

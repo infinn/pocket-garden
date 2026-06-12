@@ -12,6 +12,7 @@ extends Node
 @onready var buckethead: PackedScene = load("res://scenes/characters/zombies/buckethead.tscn")
 @onready var football: PackedScene = load("res://scenes/characters/zombies/football.tscn")
 @onready var screendoor: PackedScene = load("res://scenes/characters/zombies/doorzombie.tscn")
+@onready var polevaulting: PackedScene = load("res://scenes/characters/zombies/polevaulting.tscn")
 
 @onready var wave_info = [
 	{
@@ -105,8 +106,8 @@ extends Node
 				"probability" = 0.2
 			},
 			{
-				"zombie" = football,
-				"probability" = 0.1
+				"zombie" = polevaulting,
+				"probability" = 0.05
 			},
 			{
 				"zombie" = screendoor,
@@ -167,8 +168,8 @@ extends Node
 				"probability" = 0.2
 			},
 			{
-				"zombie" = football,
-				"probability" = 0.1
+				"zombie" = polevaulting,
+				"probability" = 0.05
 			},
 			{
 				"zombie" = screendoor,
@@ -194,8 +195,12 @@ extends Node
 			},
 			{
 				"zombie" = screendoor,
-				"probability" = 0.5
-			}
+				"probability" = 0.45
+			},
+			{
+				"zombie" = polevaulting,
+				"probability" = 0.05
+			},
 		]
 	},
 ]
