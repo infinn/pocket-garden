@@ -29,7 +29,7 @@ To run or develop this project, you will need:
 ## Character
 
 ### Plants
-![current plants](image\current-plant.png)
+![current plants](image/current-plant.png)
 
 | Plant | Sun Cost | HP | Damage | Recharge | Special |
 |-------|----------|-----|--------|----------|---------|
@@ -45,7 +45,7 @@ To run or develop this project, you will need:
 *\*Unlockable in the seed shop*
 
 ### Zombies
-![current zombies](image\current-zombies.png)
+![current zombies](image/current-zombies.png)
 
 | Zombie | HP | Armor | Speed | Special |
 |--------|-----|-------|-------|---------|
