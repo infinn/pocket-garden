@@ -48,8 +48,8 @@
 		"name":"Snow Pea",
 		"sun-cost":175,
 		"seed-recharge":7.5,
-		"hp":60,
-		"damage":100,
+		"hp":600,
+		"damage":10,
 		"preparation-time":1.5,
 		"range":"full"
 	},

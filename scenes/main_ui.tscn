@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://dkstseakuhg6n" path="res://scenes/characters/plants/tall-nut.tscn" id="15_rbpqj"]
 [ext_resource type="FontFile" uid="uid://d0mh6weito61i" path="res://assests/fonts/minecraft.ttf" id="15_ulqfl"]
 [ext_resource type="PackedScene" uid="uid://bts46u00461dw" path="res://scenes/characters/plants/repeater.tscn" id="16_4yyl0"]
+[ext_resource type="Texture2D" uid="uid://c527jq4vymlav" path="res://assests/sprites/characters/plants/snow-pea/shop.png" id="19_4yyl0"]
+[ext_resource type="PackedScene" uid="uid://pi3dpdm4m7ax" path="res://scenes/characters/plants/snow-pea.tscn" id="20_wn4yt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6fyy"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -127,6 +129,13 @@ layout_mode = 2
 texture = ExtResource("15_eigca")
 plant_name = "Tall-nut"
 plant_setup = ExtResource("15_rbpqj")
+is_can_bought = false
+
+[node name="SnowPea" parent="Panel/VBoxContainer2" unique_id=817476628 instance=ExtResource("1_513t2")]
+layout_mode = 2
+texture = ExtResource("19_4yyl0")
+plant_name = "Snow Pea"
+plant_setup = ExtResource("20_wn4yt")
 is_can_bought = false
 
 [node name="Panel2" type="Panel" parent="." unique_id=769587422]

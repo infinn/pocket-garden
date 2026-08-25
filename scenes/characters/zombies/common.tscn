@@ -458,6 +458,21 @@ tracks/0/keys = {
 "values": [Color(0.60522425, 0.60522425, 0.60522425, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_jv13s"]
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333337, 9.5, 9.88),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.6509804, 0.96862745, 1, 1), Color(0.10980392, 0.7137255, 0.9372549, 1), Color(0.10980392, 0.7137255, 0.9372549, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_wv5xh"]
 resource_name = "take_damage"
 length = 0.2
@@ -490,6 +505,7 @@ tracks/1/keys = {
 _data = {
 &"RESET": SubResource("Animation_3th5i"),
 &"helmet_damage": SubResource("Animation_8tt20"),
+&"take_cold": SubResource("Animation_jv13s"),
 &"take_damage": SubResource("Animation_wv5xh")
 }
 

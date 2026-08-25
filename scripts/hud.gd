@@ -39,3 +39,6 @@ func check_seed_in_shop():
 	
 	$Panel/VBoxContainer2/Tallnut.visible = SaveManager.user_data["seed"]["tall_nut"]
 	$Panel/VBoxContainer2/Tallnut.is_can_bought = SaveManager.user_data["seed"]["tall_nut"]
+	
+	$Panel/VBoxContainer2/SnowPea.visible = SaveManager.user_data["seed"]["snow_pea"]
+	$Panel/VBoxContainer2/SnowPea.is_can_bought = SaveManager.user_data["seed"]["snow_pea"]

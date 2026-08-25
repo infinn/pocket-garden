@@ -10,14 +10,16 @@ var user_data = {
 	"seed": {
 		"twin_sunflower": false,
 		"reapeter": false,
-		"tall_nut": false
+		"tall_nut": false,
+		"snow_pea":false
 	},
 	"config":
 		{
 			"music":true,
 			"direction":0,
 			"scale":1
-		}
+		},
+	"last_version_play":"0.5.0"
 }
 
 func _ready():

@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://b31ot2fkqc0fj"]
+
+[ext_resource type="PackedScene" uid="uid://bte3ny0ojyyr6" path="res://scenes/object/peashooter_bullet.tscn" id="1_50ier"]
+[ext_resource type="Texture2D" uid="uid://c3x6g5my7fuxh" path="res://assests/sprites/characters/plants/snow-pea/bullet.png" id="2_mtofe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6p3p4"]
+atlas = ExtResource("2_mtofe")
+region = Rect2(0, 0, 22, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrtso"]
+atlas = ExtResource("2_mtofe")
+region = Rect2(0, 0, 22, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wcif"]
+atlas = ExtResource("2_mtofe")
+region = Rect2(22, 0, 22, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ot38u"]
+atlas = ExtResource("2_mtofe")
+region = Rect2(44, 0, 22, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfqp4"]
+atlas = ExtResource("2_mtofe")
+region = Rect2(66, 0, 22, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2f8lq"]
+atlas = ExtResource("2_mtofe")
+region = Rect2(88, 0, 22, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1yo5"]
+atlas = ExtResource("2_mtofe")
+region = Rect2(110, 0, 22, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gsxmv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6p3p4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrtso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wcif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ot38u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfqp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f8lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1yo5")
+}],
+"loop": false,
+"name": &"splash",
+"speed": 7.0
+}]
+
+[node name="Area2D" unique_id=1459583768 instance=ExtResource("1_50ier")]
+bullet_type = 2
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=917310607]
+sprite_frames = SubResource("SpriteFrames_gsxmv")
+animation = &"default"
+frame = 0
+frame_progress = 0.11328826
