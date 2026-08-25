@@ -13,6 +13,14 @@ extends CharacterBody2D
 # Zombie states
 enum{WALK, EAT, WALK_DEATH, EAT_DEATH, DEATH}
 
+# Debuff types applied by bullets
+enum DebuffType { COLD }
+
+# Duration of a cold debuff in seconds (resets on every hit)
+const COLD_DURATION : float = 10.0
+# Movement slow multiplier applied while cold (20% slower)
+const COLD_SLOW_FACTOR : float = 0.5
+
 
 # Movement and state variables
 var move_direction := -1
@@ -57,6 +65,11 @@ var has_money : bool = false
 @onready var money_sfx: AudioStreamPlayer2D = $MoneySFX
 
 
+# Debuff state
+var cold_active : bool = false
+var cold_timer : Timer
+
+
 # Called when the node is added to the scene
 func _ready() -> void:
 	if DataManager.zombies_data.has(zombie_name): 
@@ -74,6 +87,12 @@ func _ready() -> void:
 		# Calculate money drop probability
 		var probability = clamp((hp + armor) / 10000.0, 0.0, 0.95)
 		has_money = randf() < probability
+		# Set up cold debuff timer
+		cold_timer = Timer.new()
+		cold_timer.wait_time = COLD_DURATION
+		cold_timer.one_shot = true
+		cold_timer.timeout.connect(_on_cold_timeout)
+		add_child(cold_timer)
 	else:
 		push_error("No data for zombie: " + zombie_name)
 		queue_free()
@@ -110,7 +129,10 @@ func _physics_process(delta: float) -> void:
 		damage = false
 	# Move zombie if walking
 	if current_state == WALK or current_state == WALK_DEATH and !is_eating:
-		velocity.x = zombie_stats["speed"] * move_direction
+		var move_speed = zombie_stats["speed"]
+		if cold_active:
+			move_speed *= COLD_SLOW_FACTOR
+		velocity.x = move_speed * move_direction
 	else:
 		velocity.x = 0
 	move_and_slide()
@@ -180,6 +202,20 @@ func take_damage(amount: float):
 			if walk_death <= 0:
 				hitbox.monitoring = false
 				death_zombie()
+
+
+# Applies a debuff to the zombie, refreshing its duration each time it is hit
+func apply_debuff(type: String) -> void:
+	match type:
+		"cold":
+			cold_active = true
+			animation_player.play("take_cold")
+			cold_timer.start() # Restarts the timer, keeping the debuff at 2s
+
+
+# Clears the cold debuff when its timer expires
+func _on_cold_timeout() -> void:
+	cold_active = false
 
 # Handles zombie death, cleanup, and rewards
 func death_zombie():
