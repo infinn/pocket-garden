@@ -91,14 +91,15 @@ func wave_manager():
 	var min_time = WaveData.wave_info[current_wave]["min-respawn"]
 	var max_time = WaveData.wave_info[current_wave]["max-respawn"]
 	
+	var spawn_time = randf_range(min_time, max_time)
+
 	if zombie_pool.size() > 0:
 		var selected_zombie = get_random_zombie(zombie_pool)
 		if selected_zombie != null:
 			spawn_zombie(selected_zombie)
-			var spawn_time = randf_range(min_time, max_time)
-			
-			timer_zombie.wait_time = spawn_time
-			timer_zombie.start()
+
+	timer_zombie.wait_time = spawn_time
+	timer_zombie.start()
 
 ## Selects a random zombie type from the pool using cumulative probability
 ## Returns the selected zombie PackedScene or null if probability selection fails
@@ -111,7 +112,7 @@ func get_random_zombie(data):
 		if roll <= cumulative_probability:
 			return entry["zombie"]
 	
-	return null
+	return data[data.size() - 1]["zombie"]
 
 ## Instantiates a zombie at a random spawn point in a random lane
 ## Argument: zombie - The PackedScene of the zombie to spawn

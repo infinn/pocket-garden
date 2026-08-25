@@ -143,11 +143,11 @@ extends Node
 		"wave-data":[
 			{
 				"zombie" = buckethead,
-				"probability" = 0.2
+				"probability" = 0.3
 			},
 			{
 				"zombie" = football,
-				"probability" = 0.4
+				"probability" = 0.3
 			},
 			{
 				"zombie" = screendoor,
@@ -157,7 +157,7 @@ extends Node
 	},
 	{
 		"min-respawn":4,
-		"max-respawn":8,
+		"max-respawn":7,
 		"wave-data":[
 			{
 				"zombie" = conehead,
@@ -169,7 +169,7 @@ extends Node
 			},
 			{
 				"zombie" = polevaulting,
-				"probability" = 0.05
+				"probability" = 0.1
 			},
 			{
 				"zombie" = screendoor,
@@ -179,7 +179,7 @@ extends Node
 	},
 	{
 		"min-respawn":2,
-		"max-respawn":6,
+		"max-respawn":5,
 		"wave-data":[
 			{
 				"zombie" = conehead,
