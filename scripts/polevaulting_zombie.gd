@@ -19,7 +19,7 @@ func _ready() -> void:
 	sprite_animation.animation_finished.connect(_on_animation_finished)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var health_pct = hp / max_hp
 	if current_state != previus_state or damage:
 		match current_state:
@@ -86,7 +86,7 @@ func _on_detector_area_entered(area: Area2D) -> void:
 	is_eating = true
 
 
-func _on_detector_area_exited(area: Area2D) -> void:
+func _on_detector_area_exited(_area: Area2D) -> void:
 	if is_jumping:
 		return
 	is_eating = false

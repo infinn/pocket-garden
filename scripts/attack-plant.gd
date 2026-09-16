@@ -25,9 +25,9 @@ func _ready() -> void:
 	timer.start()
 	play_animation("idle")
 
-func play_animation(name):
-	if sprite and sprite.sprite_frames.has_animation(name):
-		sprite.play(name)
+func play_animation(anim_name):
+	if sprite and sprite.sprite_frames.has_animation(anim_name):
+		sprite.play(anim_name)
 
 func shoot():
 	if ray_cast_2d.is_colliding():
@@ -36,11 +36,11 @@ func shoot():
 			play_animation("shoot")
 
 func spawn_bullet():
-	var bullet = bullet_instantiate.instantiate()
-	bullet.lane = cell_plant.y
+	var new_bullet = bullet_instantiate.instantiate()
+	new_bullet.lane = cell_plant.y
 	
-	get_tree().current_scene.add_child(bullet)
-	bullet.global_position = marker_2d.global_position
+	get_tree().current_scene.add_child(new_bullet)
+	new_bullet.global_position = marker_2d.global_position
 	
 	if shoot_sfx.playing:
 		shoot_sfx.stop()

@@ -24,7 +24,7 @@ const COLD_SLOW_FACTOR : float = 0.5
 
 # Movement and state variables
 var move_direction := -1
-var current_state = WALK
+var current_state: int = WALK
 var previus_state
 
 
@@ -99,7 +99,7 @@ func _ready() -> void:
 
 
 # Handles zombie movement and animation state per frame
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var health_pct = hp / max_hp
 	if current_state != previus_state or damage:
 		match current_state:
@@ -153,7 +153,7 @@ func _on_detector_area_entered(area: Area2D) -> void:
 
 
 # Called when zombie stops colliding with a plant
-func _on_detector_area_exited(area: Area2D) -> void:
+func _on_detector_area_exited(_area: Area2D) -> void:
 	is_eating = false
 	if current_state == EAT:
 		current_state = WALK

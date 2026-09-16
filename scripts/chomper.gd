@@ -27,16 +27,16 @@ signal reduce_healt(healt_left)
 func _ready() -> void:
 	setup(plant_name)
 
-func setup(plant_name: String):
-	if DataManager.plant_data.has(plant_name):
-		plant_stats = DataManager.plant_data[plant_name]
+func setup(p_name: String):
+	if DataManager.plant_data.has(p_name):
+		plant_stats = DataManager.plant_data[p_name]
 		health = plant_stats["hp"]
 
 		timer.wait_time = plant_stats["preparation-time"]
 
 		animated_sprite_2d.play("idle")
 	else:
-		push_error("No se encontraron datos para la planta: " + plant_name)
+		push_error("No se encontraron datos para la planta: " + p_name)
 
 func eat_zombie(area: Area2D) -> void:
 	if current_state != State.IDLE:

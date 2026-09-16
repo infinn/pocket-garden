@@ -38,7 +38,7 @@ signal plant_placed(name)
 ## Argument: the name of the plant removed
 signal plant_delete(name)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if cursor_plant != null and is_cursor_plant_show:
 		cursor_plant.global_position = get_global_mouse_position()
 	if cursor_shovel != null and is_shovel_show:
@@ -90,8 +90,8 @@ func try_place_plant():
 		
 		hud.show_cancel_button(false)
 
-func delete_plant(place, name):
-	plant_delete.emit(name)
+func delete_plant(place, p_name):
+	plant_delete.emit(p_name)
 	plants_placed.erase(place)
 
 ## Cancels the current plant placement or shovel mode

@@ -31,8 +31,6 @@ var is_playing : bool = true
 
 ## Initialize game state, connect signals
 func _ready() -> void:
-	var root = get_tree().get_root()
-	
 	get_viewport().transparent_bg = true
 	
 	get_tree().paused = true

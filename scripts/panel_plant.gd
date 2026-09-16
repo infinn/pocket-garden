@@ -46,9 +46,9 @@ func _ready() -> void:
 	GameManager.plant_delete.connect(check_dead_plant)
 
 ## Loads plant data from DataManager and initializes the panel UI with correct stats
-func search_plant(plant_name : String):
-	if DataManager.plant_data.has(plant_name): 
-		var plant_stats = DataManager.plant_data[plant_name]
+func search_plant(p_name : String):
+	if DataManager.plant_data.has(p_name):
+		var plant_stats = DataManager.plant_data[p_name]
 		seed_recharge = plant_stats["seed-recharge"]
 		sun_cost = plant_stats["sun-cost"]
 		origin_cost = sun_cost
@@ -63,7 +63,7 @@ func search_plant(plant_name : String):
 		timer.connect("timeout", finish_seed_recharge)
 
 ## Handles card click - initiates plant placement if player has enough sun
-func _on_gui_input(event: InputEvent) -> void:
+func _on_gui_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left-click") and is_avaliable and !GameManager.is_shovel_show and is_can_bought:
 		GameManager.select_plant(self)
 		if Global.sun_amount_player >= sun_cost:
@@ -73,8 +73,8 @@ func _on_gui_input(event: InputEvent) -> void:
 
 ## Starts the seed recharge cooldown when this plant is placed
 ## Also applies tax if more than 2 of this plant are placed
-func start_seed_recharge(name : String):
-	if plant_name == name:
+func start_seed_recharge(p_name : String):
+	if plant_name == p_name:
 		progress_bar.value = seed_recharge
 		is_avaliable = false
 		plants_numbers += 1
@@ -104,8 +104,8 @@ func set_tax():
 		label.text = str(sun_cost)
 
 ## Handles plant removal - reduces plant count and decreases cost if applicable
-func check_dead_plant(name : String):
-	if plant_name == name:
+func check_dead_plant(p_name : String):
+	if plant_name == p_name:
 		plants_numbers -= 1
 		sun_cost = int(round(sun_cost / 1.10))
 		if plants_numbers < 3:

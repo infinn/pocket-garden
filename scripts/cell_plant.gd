@@ -16,7 +16,7 @@ func _on_mouse_entered() -> void:
 
 ## Called when this cell is clicked
 ## Handles both plant placement (if cursor is showing plant) and plant removal (if shovel is active)
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if GameManager.is_cursor_plant_show:
 			GameManager.try_place_plant()

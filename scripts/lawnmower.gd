@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
 	queue_free()
 
-func _on_detection_area_entered_detection(area: Area2D) -> void:
+func _on_detection_area_entered_detection(_area: Area2D) -> void:
 	if not isactive:
 		isactive = true
 		audio_stream_player_2d.play()

@@ -20,7 +20,7 @@ func _ready() -> void:
 	Global.update_money_amount.connect(check_is_avaliable)
 
 
-func _on_gui_input(event: InputEvent) -> void:
+func _on_gui_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left-click") and Global.money >= cost:
 		Global.buy_seed_in_shop(cost, plant_name)
 		panel.visible = false

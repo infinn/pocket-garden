@@ -55,7 +55,7 @@ func change_viewport_scale(perc : float):
 	var new_height = height_viewport * perc
 	
 	var win = get_window()
-	win.size = Vector2i(new_width, new_height)
+	win.size = Vector2i(int(new_width), int(new_height))
 
 func buy_seed_in_shop(amount : int, plant_name : String):
 	subtract_money(amount)

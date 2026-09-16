@@ -134,7 +134,7 @@ func _process(_delta):
 	wave_progress_bar.value = timer_spawn.time_left
 
 ## Called when a zombie reaches the end of the lawn (loses the game)
-func _on_area_lose_game_area_entered(area: Area2D) -> void:
+func _on_area_lose_game_area_entered(_area: Area2D) -> void:
 	Global.user_death()
 
 ## Toggles the shovel tool for removing plants

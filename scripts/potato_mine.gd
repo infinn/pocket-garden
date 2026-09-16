@@ -42,10 +42,10 @@ func explode():
 	await get_tree().create_timer(3.5).timeout
 	queue_free()
 
-func setup(plant_name: String):
+func setup(p_name: String):
 	# search for plant in data
-	if DataManager.plant_data.has(plant_name): 
-		plant_stats = DataManager.plant_data[plant_name]
+	if DataManager.plant_data.has(p_name): 
+		plant_stats = DataManager.plant_data[p_name]
 		
 		health = plant_stats["hp"]
 		
@@ -53,7 +53,7 @@ func setup(plant_name: String):
 		timer.timeout.connect(_on_timer_timeout)
 		timer.start()
 	else:
-		push_error("No se encontraron datos para la planta: " + plant_name)
+		push_error("No se encontraron datos para la planta: " + p_name)
 
 func _on_timer_timeout():
 	animated_sprite_2d.play("idle")
@@ -72,6 +72,6 @@ func take_damage(amount: float):
 			reduce_healt.emit(health)
 
 
-func _on_detection_area_area_entered(area: Area2D) -> void:
+func _on_detection_area_area_entered(_area: Area2D) -> void:
 	if is_active and !is_explode:
 		explode()

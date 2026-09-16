@@ -12,8 +12,6 @@ var is_explode: bool = false
 @export var cell_plant: Vector2i
 @onready var explotion_sfx: AudioStreamPlayer2D = $ExplotionSFX
 
-signal reduce_healt(healt_left)
-
 func _ready() -> void:
 	timer.start()
 	timer.connect("timeout", explode)
