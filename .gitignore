@@ -7,3 +7,5 @@ build/
 .vscode/
 
 export_presets.cfg
+
+/image/*.import
