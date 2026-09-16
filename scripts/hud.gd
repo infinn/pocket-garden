@@ -30,6 +30,7 @@ func _on_button_button_down() -> void:
 func show_cancel_button(value: bool):
 	$Button.visible = value
 
+## Refreshes shop seed availability based on saved unlock data
 func check_seed_in_shop():
 	$Panel/VBoxContainer2/TwinSunflower.visible = SaveManager.user_data["seed"]["twin_sunflower"]
 	$Panel/VBoxContainer2/TwinSunflower.is_can_bought = SaveManager.user_data["seed"]["twin_sunflower"]
@@ -42,3 +43,6 @@ func check_seed_in_shop():
 	
 	$Panel/VBoxContainer2/SnowPea.visible = SaveManager.user_data["seed"]["snow_pea"]
 	$Panel/VBoxContainer2/SnowPea.is_can_bought = SaveManager.user_data["seed"]["snow_pea"]
+	
+	$Panel/VBoxContainer2/Chomper.visible = SaveManager.user_data["seed"]["chomper"]
+	$Panel/VBoxContainer2/Chomper.is_can_bought = SaveManager.user_data["seed"]["chomper"]

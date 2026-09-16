@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://bts46u00461dw" path="res://scenes/characters/plants/repeater.tscn" id="16_4yyl0"]
 [ext_resource type="Texture2D" uid="uid://c527jq4vymlav" path="res://assests/sprites/characters/plants/snow-pea/shop.png" id="19_4yyl0"]
 [ext_resource type="PackedScene" uid="uid://pi3dpdm4m7ax" path="res://scenes/characters/plants/snow-pea.tscn" id="20_wn4yt"]
+[ext_resource type="Texture2D" uid="uid://ds18gyqejn0ts" path="res://assests/sprites/characters/plants/chomp/shop.png" id="21_26nsp"]
+[ext_resource type="PackedScene" uid="uid://b8rlw4nisksxc" path="res://scenes/characters/plants/chomp.tscn" id="22_rrr7h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6fyy"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -136,6 +138,13 @@ layout_mode = 2
 texture = ExtResource("19_4yyl0")
 plant_name = "Snow Pea"
 plant_setup = ExtResource("20_wn4yt")
+is_can_bought = false
+
+[node name="Chomper" parent="Panel/VBoxContainer2" unique_id=595012888 instance=ExtResource("1_513t2")]
+layout_mode = 2
+texture = ExtResource("21_26nsp")
+plant_name = "Chomper"
+plant_setup = ExtResource("22_rrr7h")
 is_can_bought = false
 
 [node name="Panel2" type="Panel" parent="." unique_id=769587422]

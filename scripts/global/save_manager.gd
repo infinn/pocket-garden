@@ -11,7 +11,8 @@ var default_data = {
 		"twin_sunflower": false,
 		"reapeter": false,
 		"tall_nut": false,
-		"snow_pea": false
+		"snow_pea": false,
+		"chomper":false
 	},
 	"config":
 		{
