@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cxtag1fjrpi0b"]
+
+[ext_resource type="Texture2D" uid="uid://buweu4w88r3u" path="res://assests/sprites/planting-animation.png" id="1_wsn23"]
+[ext_resource type="AudioStream" uid="uid://djn76kysjn3jb" path="res://assests/audio/sfx/plant/peashooter_shot.wav" id="2_rpf5t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3oijg"]
+size = Vector2(30, 35)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u7khj"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1130085995]
+
+[node name="hitbox" type="Area2D" parent="." unique_id=1383344987]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=364181020]
+shape = SubResource("RectangleShape2D_3oijg")
+debug_color = Color(0, 0.64630204, 0.2476035, 0.41960785)
+
+[node name="Timer" type="Timer" parent="." unique_id=1837060113]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=398032287]
+material = SubResource("CanvasItemMaterial_u7khj")
+position = Vector2(0, 9)
+emitting = false
+amount = 1
+texture = ExtResource("1_wsn23")
+lifetime = 1.5
+one_shot = true
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, 0)
+anim_speed_min = 2.5
+anim_speed_max = 2.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1066872002]
+
+[node name="ShootSFX" type="AudioStreamPlayer2D" parent="." unique_id=1996696037]
+stream = ExtResource("2_rpf5t")
+volume_db = -20.0
